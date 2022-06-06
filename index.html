@@ -7,8 +7,9 @@
     <title>GitAlura</title>
 </head>
 <body>
-    <h1>Comandos de Git Bash, como crear nuestro Repositorio</h1>
+    
     <ul>
+        <h1>Comandos de Git Bash, como crear nuestro Repositorio</h1>
         <li>Permite almacenamiento y acceso a un historial de cambios.</li>
         <li>Nos deja organizar el trabajo en equipo, manteniendo los cambios en los archivos en un servidor específico para eso</li>
         <li>clikeando en el titulo del git bash se puede acceder a una configuracion/opciones/select/..ejemplo cambiar tamaño de letras</li>
@@ -33,9 +34,9 @@
         <li>a que un cambio de una persona no influya en el cambio realizado por otra</li>
     </ul>
 
-    <h1>Como guardar|monitorear|trakear los cambios / más comandos</h1>
+    
     <ul>
-
+        <h1>Como guardar|monitorear|trakear los cambios / más comandos</h1>
         <li>git add .</li>
         <li>git status (ahora deberia de aparecer en verde nuestro archivo y no color rojo, lo que significa que fue agregado correctamente )</li>
         <li>git rm --cached index.html (en el caso que ese archivo querramos dejar de monitorear)
@@ -48,12 +49,45 @@
         <li>git config --global user.name "suNombre"</li>
         <li>git status</li>
         <li>git add . (agregamos todas las modificaciones nuevamente)</li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        
+        <li>aquí hay algunas definiciones interesantes:</li>
+        <li>HEAD: Estado actual de nuestro código, es decir, donde nos colocó Git</li>
+        <li>Working tree: Lugar donde los archivos realmente están siendo almacenados</li>
+        <li>index: Lugar donde Git almacena lo que será commiteado, es decir, la ubicación entre el working tree y el repositorio de Git en sí.</li>
+    </ul>
 
+    <ul>
+        <h1>Viendo el historico</h1>
+        <li>git log (este comando muestra el historial de commit)</li>
+        <li>commit a6eb1234482c6ad9afbbd9c4764112535d6342ba (el commit hash nos debe mostrar)</li>
+        <li>git config user.name (para consultar nombre de usuario registrado)</li>
+        <li>git config user.email (para consultar email registrado)</li>
+        <li>Recordemos que se puede itilizar tanto la configuracion local que va a ser solo para este repo, ej..git config --local user.name "nombre" | o de forma global.. ej.. git config --global user.name "nombre".. aplica lo mismo para el email </li>
+        <li>clear (comando para limpiar la pantalla)</li>
+        <li>git log --oneline (otro comando para visualizar los commits en una sola linea)</li>
+        <li>git log -p (para ver los archivos modificados en los commits)</li>
+        <li>:q (para salir de ese editor de commits)</li>
+        <li>git log --pretty="format:%H" (para ver solo los hash de cada commit unicamente)</li>
+        <li>¿Cómo podemos definir el nombre de la persona que ejecuta commits en el repositorio local actual?</li>
+        <li>git config --local user.name "Nombre de la persona"</li>
+        <li>Esto se realiza cuando tranajamos en equipo con un repo de una empresa por ejemplo</li>
+        <li>Así todos los commits ejecutados en este repositorio serán atribuidos a la persona con el nombre Nombre de la persona. Para más detalles y otras configuraciones posibles (incluso algunas más avanzadas), pueden visitar este link: https://git-scm.com/book/en/v2Customizing-Git-Git-Configuration.</li>
+        <li>hoja de trucos: https://devhints.io/git-log</li>
+        
+    </ul>
+    <ul>
+        <h1>.gitignore (Archivos que queremos que Git ignore y no se vena en el repositorio virtual)</h1>
+        <ul>
+            <li>tenemos que crear el archivo .gitignore</li>
+            <li>y a modo de ejemplo excluimos:</li>
+            <li>carpeta/</li>
+            <li>a.config</li>
+            <li>luego en el comando git bash:</li>
+            <li>git add .gitignore  (luego del .git con tabulador nos autocompleta .gitignore)</li>
+            <li>luego comitiamos</li>
+            <li>git commit -m " commit n°3 agregamos archivos al index, tambien agregamos .gitignore"</li> 
+            <li></li>
+            <li></li>
+        </ul>
     </ul>
     
 </body>
