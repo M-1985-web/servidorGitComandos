@@ -104,9 +104,64 @@
         <li>Martin Maldonado@DESKTOP-VMK0ASK MINGW64 ~/Desktop/gitAlura/servidorGit (BARE:master)</li>
         <li>cd .. (volvemos a nuestra carpeta anterior)</li>
         <li>git remote (lista todos los servidores remotos que tiene el proyecto)</li>
-        <li>Creamos un repo remoto en git</li>
-        <li>git remote add origin https://github.com/M-1985-web/servidorGitAluraComandos.git</li>
+        <li>Creamos un repo remoto local en git</li>
+        <li>git remote add origin C:/Users/Martin Maldonado/Desktop/gitAlura/servidorGit/</li>
         <li>git remote -v (para ver los servidores en donde alojamos la info)</li>
+        <li>cd ..</li>
+        <li>mkdir otrousuarioquetrabajeenelproyecto</li>
+        <li>cd otrousuarioquetrabajeenelproyecto/</li>
+        <li>git clone C:/Users/Martin Maldonado/Desktop/gitAlura/servidorGit/ proyecto (creara una carpeta proyecto con la info)</li>
+        <li>cd ../.. (paras salir de esa carpeta y volver a la principal)</li>
+        <li>suponiendo que trabajara en el proyecto previo lo clona</li>
+        <li>En el último video trabajamos bastante. Nuestra primera tarea fue crear un nuevo repositorio, que será utilizado como nuestro “servidor” de Git, o sea, todos los miembros del equipo accederán a él para compartir
+        sus cambios.
+        ¿Cómo hicimos para definir un repositorio Git en este caso?</li>
+        <li>git init --bare</li>
+        <li>Con este comando creamos un repositorio que no tendrá la working tree, o sea, no contendrá una copia de nuestros archivos. Como el repositorio servirá solo como servid para que otros miembros del equipo sincronicen sus trabajos, disminuimos espacio de almacenamiento esta forma.</li>
+        <li>Antes de sincronizar nuestros cambios en el código con algún repositorio remoto, necesitamos agregarlos a nuestro repositorio local.
+        ¿Cómo agregamos este enlace entre los repositorios?</li>
+        <li>git remote add nombre-repositorio camino/del/repositorio</li>
+        <li>De esta forma tendremos un link de nuestro repositorio local con el repositorio remoto, que llamamos de nombre-repositorio, que está almacenado en camino/del/repositorio.</li>
+    </ul>
+
+    <ul>
+        <h1>Sincronizando datos</h1>
+        <li>cd otrousuarioquetrabajeenelproyecto/proyecto/</li>
+        <li>ls</li>
+        <li>git remote (origin por defecto)</li>
+        <li>git remote rename local servidorlocal</li>
+        <li>git remote (no debe aparecer servidorlocal)</li>
+        <li>git pull servidorlocal master</li>
+        <li>creara una nueva rama para ese usuario</li>
+        <li>ls (le deberia figurar el index.html)</li>
+        <li>leugo de que el usuario agregue y comitee las modificaciones</li>
+        <li>git push servidorlocal master  (lo pushea para ue aplique los cambios)</li>
+        <li>cd ../..</li>
+        <li>ls</li>
+        <li>cd nombrecarpeta (para movernos entre carpetas)</li>
+        <li>git pull servidorlocal master</li>
+        <li>git log -p (vemos que modico el otro usuario)</li>
+        <li>:q  (salimos de ese espacio)</li>
+        <li>Además de agregar repositorios remotos para sincronizar los datos, vimos que git clone trae un repositorio remoto para nuestra computadora, creando un repositorio local.</li>
+        <li>Al modificar el código en nuestro repositorio local, ¿cómo enviamos las modificaciones para el repositorio remoto?</li>
+        <li>git push [repositorio] master</li>
+        <li>De esta forma enviamos las modificaciones de nuestra Branch master (hablaremos más sobre branches dentro de poco) hacia el repositorio remoto. Basta con substituir [repositor por el nombre que dimos al repositorio al agregarlo. Ahora, para traer los datos que están en el reposito remoto, podemos utilizar git pull [repositorio] master.</li>
+    </ul>
+
+    <ul>
+        <h1>GitHub</h1>
+        <li>git remote add origin https://github.com/M-1985-web/servidorGitAluraComandos.git</li>
+        <li>git push -u origin master (subimos todo el proyecto remotamente, siempre comitiar antes de subir cambios)
+        </li>
+        <li>Con GitHub, podemos tener repositorios remotos públicos y privados gratuitos para almacenar y compartir el código de nuestros proyectos.</li>
+    </ul>
+
+    <ul>
+        <h1>Trabajo en equipo BRANCHES</h1>
+        <li>git branch (nos arrojara master)</li>
+        <li></li>
+        <li></li>
+        <li></li>
         <li></li>
     </ul>
     
