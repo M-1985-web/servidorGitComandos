@@ -184,6 +184,38 @@
         <li>git pull -u origin master (para actualizar los archivos en la branch actual)</li>
         <li>git push -u origin master</li>
     </ul>
+
+    <ul>
+        <h1>Deshaciendo trabajo</h1>
+        <li>git restore index.html (seleccionamos el nombre del archivo en el cual queremos deshacer los cambios)</li>
+        <li>ahora si a ese cambio le hice git add .</li>
+        <li>antes de comitiarlo podemos utilizar:</li>
+        <li>git restore --staged index.html (vuelve a la instancia previa de hacer el git add .)</li>
+        <li>en el peor de los casos si ya lo comitiamos</li>
+        <li>y queremos deshacer ese cambio</li>
+        <li>git log</li>
+        <li>copiamos el hash de ese commit son unos 40 caracteres alfanumericos aproximadamente</li>
+        <li>git revert masElNumeroDelHash</li>
+        <li>crea un nuevo commit Deshaciendo el commit anterior</li>
+        <li>:X   (para salir de la pantalla commitiada, si queremos podemos modificar el mensaje)</li>
+        <li>¿Cuáles comandos, respectivamente, deshacen modificaciones antes de agregarlas (1), después de agregarlas, pero antes de commitearlas (2), y después de realizar el commit (3)?</li>
+        <li>1 - git restor, 2 - git restore --stage, 3 - git revert</li>
+        <li>Con el git restore deshacemos una modificación que aún no fue agregada al index o stage, o sea, antes de hacer git add. Después de agregar con git add, para deshacer  modificación, necesitamos sacarlo de este estado, con git restore --staged. Ahora, si ya hicimos el commit, comando git revert puede salvarnos</li>
+        <li></li>
+
+        <ul>
+            <h1>Guardando para despues</h1>
+            <li>la guadamos en un lugar temporal pero no es como un commit</li>
+            <li>git stash (nos da un hash)</li>
+            <li>Primera opcion para recuperar el trabajo</li>
+            <li>git stash list (nos lista los trabajos que guardamos)</li>
+            <li>git stash apply 0 (los lista como un arrays, el primero es cero. pero luego debemos de eliminarla del stash)</li>
+            <li>segunda opcion</li>
+            <li>git stash pop (esta opcion es la mejor porque la agrega al trabajo y la elimina del stash)</li>
+            <li>Este ultimo genera un merge con las modifiaciones que ya teniamos</li>
+            <li></li>
+        </ul>
+    </ul>
     
     
 </body>
