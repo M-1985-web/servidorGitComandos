@@ -201,21 +201,83 @@
         <li>¿Cuáles comandos, respectivamente, deshacen modificaciones antes de agregarlas (1), después de agregarlas, pero antes de commitearlas (2), y después de realizar el commit (3)?</li>
         <li>1 - git restor, 2 - git restore --stage, 3 - git revert</li>
         <li>Con el git restore deshacemos una modificación que aún no fue agregada al index o stage, o sea, antes de hacer git add. Después de agregar con git add, para deshacer  modificación, necesitamos sacarlo de este estado, con git restore --staged. Ahora, si ya hicimos el commit, comando git revert puede salvarnos</li>
-        <li></li>
-
-        <ul>
-            <h1>Guardando para despues</h1>
-            <li>la guadamos en un lugar temporal pero no es como un commit</li>
-            <li>git stash (nos da un hash)</li>
-            <li>Primera opcion para recuperar el trabajo</li>
-            <li>git stash list (nos lista los trabajos que guardamos)</li>
-            <li>git stash apply 0 (los lista como un arrays, el primero es cero. pero luego debemos de eliminarla del stash)</li>
-            <li>segunda opcion</li>
-            <li>git stash pop (esta opcion es la mejor porque la agrega al trabajo y la elimina del stash)</li>
-            <li>Este ultimo genera un merge con las modifiaciones que ya teniamos</li>
-            <li></li>
-        </ul>
     </ul>
+
+    <ul>
+        <h1>Guardando para despues</h1>
+        <li>la guadamos en un lugar temporal pero no es como un commit</li>
+        <li>git stash (nos da un hash)</li>
+        <li>Primera opcion para recuperar el trabajo</li>
+        <li>git stash list (nos lista los trabajos que guardamos)</li>
+        <li>git stash apply 0 (los lista como un arrays, el primero es cero.pero luego debemos de eliminarla del stash)</li>
+        <li>segunda opcion</li>
+        <li>git stash pop (esta opcion es la mejor porque la agrega al trabajoy la elimina del stash)</li>
+        <li>Este ultimo genera un merge con las modifiaciones que ya teniamos<li>
+        <li>¿En qué momento el stash es útil?</li>
+        <li>Cuando necesitamos parar en el medio del desarrollo de algo, para poder hacer otra cosa.</li>
+        <li>Cuando necesitamos pausar el desarrollo de alguna funcionalidad, o corrección, antes de finalizar, y tal vez no sea interesante realizar un commit, pues nuestro código puede estar funcionando aún. En este caso es interesante guardar el trabajo para poder volver a él después.</li>
+    </ul>
+
+    <ul>
+        <h1>Viajando en el tiempo</h1>
+        <li>git log --oneline  (para ver todos los commits)</li>
+        <li>git checkout masElNumeroDeHash (el hash que nos arrojo el log, seleccionamos el momento exacto en el tiempo al cual queremos volver)</li>
+        <li>git checkout -b (tenemos que crear una nueva branch)</li>
+        <li>git checkout master (para volver a la master)</li>
+        <li>Resumidamente, ¿para qué sirve el comando git checkout?</li>
+        <li>Para dejar nuestro código en un estado determinado.</li>
+        <li>La descripción del comando git checkout --help, en una traducción libre es: “Actualizar los archivos en working tree para que queden en la versión especificada. [… Básicamente, podemos dejar nuestro código en el estado de últ commit de una branch, de un commit específico, o incluso tags (que veremos más adelante).</li>
+        <li>Que Git puede ayudarnos a deshacer cambios que no vamos a utilizar;</li>
+        <li>Que, para deshacer un cambio antes de agregarlo para commit(con git add), podemos usar el comando git restore mas el archivo;</li>
+        <li>Que, para deshacer un cambio después de agregarlo paracommit, primero debemos ejecutar git restore --staged (archivos) y luego podemos deshacerlos con git restore (files);</li>
+        <li>Que, para revertir los cambios realizados en un commit, el comando git revert puede ser la solución;</li>
+        <li>Que el comando git revert genera un nuevo commit informando que los cambios fueron deshechos;</li>
+        <li>Que, para guardar un trabajo y reanudarlo más tarde, podemos usar git stash;</li>
+        <li>Que, para ver qué cambios hay en el stash, podemos usar el comando git stash list;</li>
+        <li>Que, con el comando git stash apply <número>, podemos aplicar un cambio específico al stash;</li>
+        <li>Que el comando git stash drop <número> elimina un elemento determinado del stash;</li>
+        <li>Que el comando git stash pop aplica y elimina el último cambio que se agregó alstash;</li>
+        <li>Que git checkout sirve para dejar la copia del código de muestra aplicación en el estado que queremos:</li>
+        <li>git checkout (branch) deja el código en el estado de una branchcon el nombre (branch)</li>
+        <li>git checkout (hash) deja el código en el estado de commit con el hash (hash)
+        </li>
+    </ul>
+
+    <ul>
+        <h1>Viendo las modificaciones</h1>
+        <li>git log -p (vemos un detalle bastante importante de los commit)</li>
+        <li>:q (para salir de ese visor)</li>
+        <li>git log --oneline (para ver todos los commits)</li>
+        <li>git diff numHash..numHash (n°..(hasta es con dos puntos)n°)</li>
+        <li>git diff enter (para agregar)</li>
+        <li>git add .</li>
+        <li>git commit</li>
+        <li>en el caso de querer volver a la instancia anterior</li>
+        <li>git restore --staget index.html</li>
+        <li>git status</li>
+        <li>git restore index.html (el index es a modo de ejemplo ahi puede ir el archivo que querramos o agregar o modificar o lo que sea)</li>
+        <li>así podemos comenzar a analizar con más control todas las modificaciones que fueron agregadas durante un desarrollo de un proyecto. Conseguimos tener un control más fino en ellos, ver las modificaciones entre commits, entre lo que estamos haciendo ahora y lo que ya  commiteado.</li>
+        <li>Entonces con git diff podemos ver todas las modificaciones, pero después de haber visto todas la modificaciones y garantizado que no hay bugs, ¿cómo puedo generar una versión? Por ejemplo una release o la versión 0.1. ¿Cómo puedo informar esto para Git, clavar una bandera acá y decir: "ese commit de acá es la release 0.1"?</li>
+        <li>Con el comando git diff, vimos que es posible visualizar las modificaciones realizadas en determinado código. Podemos ver las diferencias entre commits, branches</li>
+        <li>¿Cómo exhibe git diff las modificaciones en el código?</li>
+        <li>+ línea agregada,- línea eliminada,- línea modificada (versión antigua)
+        ,+ línea modificada (nueva versión)</li>
+        <li>El símbolo de sustracción (-) antes de la línea indica que ella no está más presente en el archivo. Ahora, el símbolo de adición (+) muestra que es una línea nueva. Las modificaciones son representadas por una
+        eliminación y adición de línea.</li>
+    </ul>
+    
+    <ul>
+        <h1>Releases/Versiones</h1>
+        <li>git log -n 2 (veo los ultimos dos commit)</li>
+        <li>git tag -a v0.1.0 -m "lanzando la primer version (BETA)" (le puedo poner el nombre que quiera, ej: cocodrilo, puedo agregar un mensaje tambien/li>
+        <li>git tag (no deberia arrojar v.0.1.0)</li>
+        <li></li>
+    </ul>
+
+
+
+
+    
     
     
 </body>
